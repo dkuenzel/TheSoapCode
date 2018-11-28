@@ -1,0 +1,37 @@
+<recipe>
+	<recipeName>Virgin Soap</recipeName>
+	<metaData>
+		<shortDescription>
+			The first soap recipe in the project
+		</shortDescription>
+	</metaData>
+	<liquids>
+		<liquidType>Water</liquidType>
+			<quantity>
+				<unit>mg</unit>
+				<amount>33000</amount>
+			</quantity>
+	</liquids>
+	<bases>
+		<baseType>NaOH</baseType>
+		<quantity>
+			<unit>mg</unit>
+			<amount>28000</amount>
+		</quantity>
+	</bases>
+	<fats>
+		<source>Olive</source>
+			<quantity>
+				<unit>g</unit>
+				<amount>100</amount>
+			</quantity>
+	</fats>
+	<additives>
+		<type>Cinnamon Oil</type>
+		<quantity>
+			<unit>mg</unit>
+			<amount>5</amount>
+		</quantity>
+	</additives>
+	<glycerineRemoval>false</glycerineRemoval>
+</recipe>

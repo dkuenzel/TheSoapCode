@@ -7,7 +7,9 @@
 			<xsd:element name="unit">
 				<xsd:simpleType>
 					<xsd:restriction base="xsd:string">
+						<xsd:enumeration value="l"/>
 						<xsd:enumeration value="ml"/>
+						<xsd:enumeration value="g"/>
 						<xsd:enumeration value="mg"/>
 					</xsd:restriction>
 				</xsd:simpleType>
@@ -41,13 +43,13 @@
 					</xsd:restriction>
 				</xsd:simpleType>
 			</xsd:element>
-			<xsd:element name="usedAmount" type="values"/>
+			<xsd:element name="quantity" type="values"/>
 		</xsd:sequence>
 	</xsd:complexType>
 	
-	<xsd:complexType name="fattyAcids">
+	<xsd:complexType name="fat">
 		<xsd:sequence>
-			<xsd:element name="oilType">
+			<xsd:element name="source">
 				<xsd:simpleType>
 					 <xsd:restriction base="xsd:string">
 						<xsd:enumeration value="Olive"/>
@@ -57,20 +59,20 @@
 					 </xsd:restriction>
 				</xsd:simpleType>
 			</xsd:element>
-			<xsd:element name="usedAmount" type="values"/>
+			<xsd:element name="quantity" type="values"/>
 		</xsd:sequence>
 	</xsd:complexType>
 	
 	<xsd:complexType name="additive">
 		<xsd:sequence>
-			<xsd:element name="additiveType">
+			<xsd:element name="type">
 				<xsd:simpleType>
 					 <xsd:restriction base="xsd:string">
-						<xsd:enumeration value="essentialOil"/>
+						<xsd:enumeration value="Cinnamon Oil"/>
 					 </xsd:restriction>
 				</xsd:simpleType>
 			</xsd:element>
-			<xsd:element name="usedAmount" type="values"/>
+			<xsd:element name="quantity" type="values"/>
 		</xsd:sequence>
 	</xsd:complexType>
 			
@@ -79,13 +81,13 @@
 			<xsd:element name="liquidType">
 				<xsd:simpleType>
 					<xsd:restriction base="xsd:string">
-						<xsd:enumeration value="water"/>
-						<xsd:enumeration value="coffee"/>
-						<xsd:enumeration value="tea"/>
+						<xsd:enumeration value="Water"/>
+						<xsd:enumeration value="Coffee"/>
+						<xsd:enumeration value="Greentea"/>
 					</xsd:restriction>
 				</xsd:simpleType>
 			</xsd:element>
-			<xsd:element name="usedAmount" type="values"/>
+			<xsd:element name="quantity" type="values"/>
 		</xsd:sequence>
 	</xsd:complexType>
 	
@@ -105,31 +107,19 @@
 	</xsd:complexType>
 			
 	
-	<!-- Soap recipe -->
-	<xsd:complexType name="soap" abstract="true">
-		<xsd:sequence>
-			<xsd:element name="name" type="xsd:string"/>
-			<xsd:element name="metaData" type="meta"/>
-			<xsd:element name="liquids" type="liquid"/>
-			<xsd:element name="bases" minOccurs="1"/>
-			<xsd:element name="fattyAcids" type="xsd:string" minOccurs="1" />
-			<xsd:element name="glycerineRemoval" type="xsd:boolean"/>
-			<xsd:element name="glycerineRemoval" type="xsd:boolean"/>
-		</xsd:sequence>
-	</xsd:complexType>
-
-
-	<!-- All recipes in this project -->
-	<xsd:element name="recipes">
+	<!-- Basic recipe structure -->
+	<xsd:element name="recipe">
 		<xsd:complexType>
 			<xsd:sequence>
-				<xsd:element name="soapRecipe" type="soap" minOccurs="1" maxOccurs="unbounded"/>
+				<xsd:element name="recipeName" type="xsd:string"/>
+				<xsd:element name="metaData" type="meta"/>
+				<xsd:element name="liquids" type="liquid"/>
+				<xsd:element name="bases" minOccurs="1"/>
+				<xsd:element name="fats" type="fat" minOccurs="1" />
+				<xsd:element name="additives" type="additive" minOccurs="1" />
+				<xsd:element name="glycerineRemoval" type="xsd:boolean"/>
 			</xsd:sequence>
 		</xsd:complexType>
-		<xsd:key name="recipeName">
-			<xsd:selector xpath="soap"/>
-			<xsd:field xpath="name"/>
-		</xsd:key>
 	</xsd:element>
  
 </xsd:schema>
