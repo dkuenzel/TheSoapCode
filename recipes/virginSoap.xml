@@ -6,32 +6,40 @@
 		</shortDescription>
 	</metaData>
 	<liquids>
-		<liquidType>Water</liquidType>
-			<quantity>
-				<unit>mg</unit>
-				<amount>33000</amount>
-			</quantity>
+		<liquidIngredient>
+			<liquidType>Water</liquidType>
+				<quantity>
+					<unit>mg</unit>
+					<amount>33000</amount>
+				</quantity>
+			</liquidIngredient>
 	</liquids>
 	<bases>
-		<baseType>NaOH</baseType>
-		<quantity>
-			<unit>mg</unit>
-			<amount>28000</amount>
-		</quantity>
+		<baseIngredient>
+			<baseType>NaOH</baseType>
+			<quantity>
+				<unit>mg</unit>
+				<amount>28000</amount>
+			</quantity>
+		</baseIngredient>
 	</bases>
 	<fats>
-		<source>Olive</source>
+		<fatIngredient>
+			<source>Olive</source>
 			<quantity>
 				<unit>g</unit>
 				<amount>100</amount>
 			</quantity>
+		</fatIngredient>
 	</fats>
 	<additives>
-		<type>Cinnamon Oil</type>
-		<quantity>
-			<unit>mg</unit>
-			<amount>5</amount>
-		</quantity>
+		<additiveIngredient>
+			<type>Cinnamon Oil</type>
+			<quantity>
+				<unit>mg</unit>
+				<amount>5</amount>
+			</quantity>
+		</additiveIngredient>
 	</additives>
 	<glycerineRemoval>false</glycerineRemoval>
 </recipe>

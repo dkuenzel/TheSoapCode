@@ -112,11 +112,41 @@
 		<xsd:complexType>
 			<xsd:sequence>
 				<xsd:element name="recipeName" type="xsd:string"/>
+				
 				<xsd:element name="metaData" type="meta"/>
-				<xsd:element name="liquids" type="liquid"/>
-				<xsd:element name="bases" minOccurs="1"/>
-				<xsd:element name="fats" type="fat" minOccurs="1" />
-				<xsd:element name="additives" type="additive" minOccurs="1" />
+				
+				<xsd:element name="liquids">
+					<xsd:complexType>
+						<xsd:sequence>
+							<xsd:element name="liquidIngredient" type="liquid" minOccurs="1" maxOccurs="unbounded"/>
+						</xsd:sequence>
+					</xsd:complexType>
+				</xsd:element>
+				
+				<xsd:element name="bases">
+					<xsd:complexType>
+						<xsd:sequence>
+							<xsd:element name="baseIngredient" type="base" minOccurs="1" maxOccurs="unbounded"/>
+						</xsd:sequence>
+					</xsd:complexType>
+				</xsd:element>
+				
+				<xsd:element name="fats">
+					<xsd:complexType>
+						<xsd:sequence>
+							<xsd:element name="fatIngredient" type="fat" minOccurs="1" maxOccurs="unbounded"/>
+						</xsd:sequence>
+					</xsd:complexType>
+				</xsd:element>
+				
+				<xsd:element name="additives">
+					<xsd:complexType>
+						<xsd:sequence>
+							<xsd:element name="additiveIngredient" type="additive" minOccurs="1" maxOccurs="unbounded"/>
+						</xsd:sequence>
+					</xsd:complexType>
+				</xsd:element>
+				
 				<xsd:element name="glycerineRemoval" type="xsd:boolean"/>
 			</xsd:sequence>
 		</xsd:complexType>
